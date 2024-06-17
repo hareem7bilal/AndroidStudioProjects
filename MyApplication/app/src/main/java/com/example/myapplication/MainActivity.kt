@@ -9,9 +9,12 @@ import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
+const val LOG_TAG = "two_trees_oil"
 class MainActivity : FragmentActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -28,21 +31,25 @@ class MainActivity : FragmentActivity() {
 
         if (savedInstanceState != null) return
 
-        supportFragmentManager.commit {
-            add<FragmentHome>(R.id.container, null)
-        }
+//        supportFragmentManager.commit {
+//            add<FragmentHome>(R.id.container, null)
+//        }
+//
+//        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+//            when(item.itemId) {
+//                R.id.action_home -> goToHome()
+//
+//                R.id.action_tours -> goToTours()
+//
+//                R.id.action_shop -> goToShop()
+//
+//                else -> false
+//            }
+//        }
 
-        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.action_home -> goToHome()
-
-                R.id.action_tours -> goToTours()
-
-                R.id.action_shop -> goToShop()
-
-                else -> false
-            }
-        }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.container) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
 
         val viewModel = ViewModelProvider(this)[SharedViewModel::class.java]
         viewModel.quantity.observe(this) {
@@ -65,29 +72,29 @@ class MainActivity : FragmentActivity() {
         }
     }
 
-    private fun goToShop(): Boolean {
-        supportFragmentManager.commit {
-            replace<FragmentShop>(R.id.container, null, null)
-        }
-
-        return true
-    }
-
-    private fun goToTours(): Boolean {
-        supportFragmentManager.commit {
-            replace<FragmentTours>(R.id.container, null, null)
-        }
-
-        return true
-    }
-
-    private fun goToHome(): Boolean {
-        supportFragmentManager.commit {
-            replace<FragmentHome>(R.id.container, null, null)
-        }
-
-        return true
-    }
+//    private fun goToShop(): Boolean {
+//        supportFragmentManager.commit {
+//            replace<FragmentShop>(R.id.container, null, null)
+//        }
+//
+//        return true
+//    }
+//
+//    private fun goToTours(): Boolean {
+//        supportFragmentManager.commit {
+//            replace<FragmentTours>(R.id.container, null, null)
+//        }
+//
+//        return true
+//    }
+//
+//    private fun goToHome(): Boolean {
+//        supportFragmentManager.commit {
+//            replace<FragmentHome>(R.id.container, null, null)
+//        }
+//
+//        return true
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)

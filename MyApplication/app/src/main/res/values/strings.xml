@@ -56,6 +56,10 @@
     <string name="plus">+</string>
     <string name="shop_header_label">Your Cart</string>
     <string name="minus">-</string>
+    <string name="product_size_label">%d ml bottle</string>
+    <string name="bottle_image">Image of the olive oil bottle</string>
     <string name="cart_content">Don’t forget about using the coupon codes you’ll\n        find around our website. They change frequently, but are always a great bargain… if we\n        do say so ourselves. If you have any questions, don’t hesitate to reach out. We love\n        helping our customers.</string>
     <string name="description_text">Through each generation we’ve adapted and evolved, always keeping our sights set on creating\n        the highest quality olive oil, while balancing our time-honored traditions with new\n        innovative techniques.\\n\\n\n        We’re passionate, even obsessive, about environmental sustainability,\n        and we’re constantly looking to find ways to decrease our footprint on mother earth.\\n\\n\n        We also share a strong sense of community with our customers, fellow farmers, and our beloved Santa\n        Rosa neighbors who have embraced our business for many decades. Our high ethical standards\n        and well-defined values are central to everything we do.</string>
+    <string name="product_image_label">Bottle of olive oil</string>
+    <string name="add_to_cart_label">Add to Cart</string>
 </resources>
